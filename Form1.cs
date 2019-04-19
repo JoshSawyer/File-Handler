@@ -118,7 +118,7 @@ namespace File_Handler
             {
                 string[] files = GetFiles(memoryDir, memoryFile, memoryOption ?? false);
 
-                if (!debugMode)
+                if (debugMode)
                 {
                     MessageBox.Show("Deletion");
                     MessageBox.Show("Files successfully deleted!", "Success");

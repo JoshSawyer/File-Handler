@@ -55,7 +55,7 @@
             // dirInput
             // 
             this.dirInput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dirInput.Location = new System.Drawing.Point(406, 32);
+            this.dirInput.Location = new System.Drawing.Point(406, 116);
             this.dirInput.MaxLength = 200;
             this.dirInput.Name = "dirInput";
             this.dirInput.Size = new System.Drawing.Size(366, 20);
@@ -64,7 +64,7 @@
             // 
             // buttonOption1
             // 
-            this.buttonOption1.Location = new System.Drawing.Point(406, 134);
+            this.buttonOption1.Location = new System.Drawing.Point(406, 218);
             this.buttonOption1.Name = "buttonOption1";
             this.buttonOption1.Size = new System.Drawing.Size(366, 23);
             this.buttonOption1.TabIndex = 2;
@@ -97,7 +97,7 @@
             // optionOneTitle
             // 
             this.optionOneTitle.AutoSize = true;
-            this.optionOneTitle.Location = new System.Drawing.Point(406, 15);
+            this.optionOneTitle.Location = new System.Drawing.Point(406, 99);
             this.optionOneTitle.Name = "optionOneTitle";
             this.optionOneTitle.Size = new System.Drawing.Size(77, 13);
             this.optionOneTitle.TabIndex = 5;
@@ -106,7 +106,7 @@
             // optionTwoTitle
             // 
             this.optionTwoTitle.AutoSize = true;
-            this.optionTwoTitle.Location = new System.Drawing.Point(406, 62);
+            this.optionTwoTitle.Location = new System.Drawing.Point(406, 146);
             this.optionTwoTitle.Name = "optionTwoTitle";
             this.optionTwoTitle.Size = new System.Drawing.Size(229, 13);
             this.optionTwoTitle.TabIndex = 7;
@@ -115,7 +115,7 @@
             // fileInput
             // 
             this.fileInput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.fileInput.Location = new System.Drawing.Point(406, 79);
+            this.fileInput.Location = new System.Drawing.Point(406, 163);
             this.fileInput.MaxLength = 200;
             this.fileInput.Name = "fileInput";
             this.fileInput.Size = new System.Drawing.Size(366, 20);
@@ -127,7 +127,7 @@
             this.searchAllSubs.AutoSize = true;
             this.searchAllSubs.Checked = true;
             this.searchAllSubs.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.searchAllSubs.Location = new System.Drawing.Point(406, 111);
+            this.searchAllSubs.Location = new System.Drawing.Point(406, 195);
             this.searchAllSubs.Name = "searchAllSubs";
             this.searchAllSubs.Size = new System.Drawing.Size(144, 17);
             this.searchAllSubs.TabIndex = 10;
