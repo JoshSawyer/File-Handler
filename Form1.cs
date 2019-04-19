@@ -18,6 +18,7 @@ namespace File_Handler
         string memoryDir;
         bool? memoryOption;
         string memoryFile;
+
         public Main()
         {
             InitializeComponent();
