@@ -1,0 +1,10 @@
+C:\Users\joshu\Desktop\Github Projects\File-Handler\bin\Debug\File Handler.exe.config
+C:\Users\joshu\Desktop\Github Projects\File-Handler\bin\Debug\File Handler.exe
+C:\Users\joshu\Desktop\Github Projects\File-Handler\bin\Debug\File Handler.pdb
+C:\Users\joshu\Desktop\Github Projects\File-Handler\obj\Debug\File Handler.csprojAssemblyReference.cache
+C:\Users\joshu\Desktop\Github Projects\File-Handler\obj\Debug\File_Handler.Main.resources
+C:\Users\joshu\Desktop\Github Projects\File-Handler\obj\Debug\File_Handler.Properties.Resources.resources
+C:\Users\joshu\Desktop\Github Projects\File-Handler\obj\Debug\File Handler.csproj.GenerateResource.cache
+C:\Users\joshu\Desktop\Github Projects\File-Handler\obj\Debug\File Handler.csproj.CoreCompileInputs.cache
+C:\Users\joshu\Desktop\Github Projects\File-Handler\obj\Debug\File Handler.exe
+C:\Users\joshu\Desktop\Github Projects\File-Handler\obj\Debug\File Handler.pdb
