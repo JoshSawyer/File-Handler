@@ -64,14 +64,14 @@ namespace File_Handler
             string[] files;
             try
             {
-                if (!Directory.Exists(dir))
-                {
-                    MessageBox.Show("Directory does not exist!", "Directory Error");
-                    return;
-                }
                 if (fileList.Text != "")
                 {
                     MessageBox.Show("There is already a file list!", "List Error");
+                    return;
+                }
+                if (!(dirInput.BackColor == Color.SpringGreen && fileInput.BackColor == Color.SpringGreen))
+                {
+                    MessageBox.Show("Please ensure that both input boxes are green!", "Input Error");
                     return;
                 }
 
@@ -149,6 +149,31 @@ namespace File_Handler
             fileList.Text = "";
             deleteFiles.Enabled = false;
             clearFiles.Enabled = false;
+        }
+
+        private void DirInput_TextChanged(object sender, EventArgs e)
+        {
+            if (Directory.Exists(dirInput.Text))
+            {
+                dirInput.BackColor = Color.SpringGreen;
+            }
+            else
+            {
+                dirInput.BackColor = Color.White;
+            }
+        }
+
+        private void FileInput_TextChanged(object sender, EventArgs e)
+        {
+            if (fileInput.Text == "*" ||
+                fileInput.Text.IndexOf(".") > -1 && fileInput.Text.Length > fileInput.Text.IndexOf(".") + 1)
+            {
+                fileInput.BackColor = Color.SpringGreen;
+            }
+            else
+            {
+                fileInput.BackColor = Color.White;
+            }
         }
     }
 }
