@@ -55,12 +55,16 @@
             // dirInput
             // 
             this.dirInput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dirInput.BackColor = System.Drawing.Color.SpringGreen;
+            this.dirInput.ForeColor = System.Drawing.Color.Black;
             this.dirInput.Location = new System.Drawing.Point(406, 116);
             this.dirInput.MaxLength = 200;
             this.dirInput.Name = "dirInput";
             this.dirInput.Size = new System.Drawing.Size(366, 20);
             this.dirInput.TabIndex = 1;
             this.dirInput.Tag = "";
+            this.dirInput.Text = "C:\\";
+            this.dirInput.TextChanged += new System.EventHandler(this.DirInput_TextChanged);
             // 
             // buttonOption1
             // 
@@ -115,18 +119,19 @@
             // fileInput
             // 
             this.fileInput.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.fileInput.BackColor = System.Drawing.Color.SpringGreen;
             this.fileInput.Location = new System.Drawing.Point(406, 163);
             this.fileInput.MaxLength = 200;
             this.fileInput.Name = "fileInput";
             this.fileInput.Size = new System.Drawing.Size(366, 20);
             this.fileInput.TabIndex = 6;
             this.fileInput.Tag = "";
+            this.fileInput.Text = "*";
+            this.fileInput.TextChanged += new System.EventHandler(this.FileInput_TextChanged);
             // 
             // searchAllSubs
             // 
             this.searchAllSubs.AutoSize = true;
-            this.searchAllSubs.Checked = true;
-            this.searchAllSubs.CheckState = System.Windows.Forms.CheckState.Checked;
             this.searchAllSubs.Location = new System.Drawing.Point(406, 195);
             this.searchAllSubs.Name = "searchAllSubs";
             this.searchAllSubs.Size = new System.Drawing.Size(144, 17);
