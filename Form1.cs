@@ -165,7 +165,7 @@ namespace File_Handler
 
         private void FileInput_TextChanged(object sender, EventArgs e)
         {
-            if (fileInput.Text == "*" ||
+            if (fileInput.Text.IndexOf("*") > -1 ||
                 fileInput.Text.IndexOf(".") > -1 && fileInput.Text.Length > fileInput.Text.IndexOf(".") + 1)
             {
                 fileInput.BackColor = Color.SpringGreen;
