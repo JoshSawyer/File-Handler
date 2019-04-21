@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.fileList = new System.Windows.Forms.TextBox();
             this.dirInput = new System.Windows.Forms.TextBox();
             this.buttonOption1 = new System.Windows.Forms.Button();
@@ -154,10 +155,10 @@
             this.Controls.Add(this.dirInput);
             this.Controls.Add(this.fileList);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Main";
-            this.ShowIcon = false;
             this.Text = "File Handler";
             this.Load += new System.EventHandler(this.Main_Load);
             this.ResumeLayout(false);
