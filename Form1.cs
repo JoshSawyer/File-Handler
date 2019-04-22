@@ -175,5 +175,15 @@ namespace File_Handler
                 fileInput.BackColor = Color.White;
             }
         }
+
+        private void Browse_Click(object sender, EventArgs e)
+        {
+            DialogResult result = getFolder.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                dirInput.Text = getFolder.SelectedPath;
+            }
+        }
     }
 }

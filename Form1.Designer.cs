@@ -38,6 +38,8 @@
             this.optionTwoTitle = new System.Windows.Forms.Label();
             this.fileInput = new System.Windows.Forms.TextBox();
             this.searchAllSubs = new System.Windows.Forms.CheckBox();
+            this.browse = new System.Windows.Forms.Button();
+            this.getFolder = new System.Windows.Forms.FolderBrowserDialog();
             this.SuspendLayout();
             // 
             // fileList
@@ -61,7 +63,7 @@
             this.dirInput.Location = new System.Drawing.Point(406, 116);
             this.dirInput.MaxLength = 200;
             this.dirInput.Name = "dirInput";
-            this.dirInput.Size = new System.Drawing.Size(366, 20);
+            this.dirInput.Size = new System.Drawing.Size(333, 20);
             this.dirInput.TabIndex = 1;
             this.dirInput.Tag = "";
             this.dirInput.Text = "C:\\";
@@ -140,11 +142,22 @@
             this.searchAllSubs.Text = "Search All Subdirectories";
             this.searchAllSubs.UseVisualStyleBackColor = true;
             // 
+            // browse
+            // 
+            this.browse.Location = new System.Drawing.Point(745, 116);
+            this.browse.Name = "browse";
+            this.browse.Size = new System.Drawing.Size(27, 20);
+            this.browse.TabIndex = 11;
+            this.browse.Text = "...";
+            this.browse.UseVisualStyleBackColor = true;
+            this.browse.Click += new System.EventHandler(this.Browse_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 361);
+            this.Controls.Add(this.browse);
             this.Controls.Add(this.searchAllSubs);
             this.Controls.Add(this.optionTwoTitle);
             this.Controls.Add(this.fileInput);
@@ -177,6 +190,8 @@
         private System.Windows.Forms.Label optionTwoTitle;
         private System.Windows.Forms.TextBox fileInput;
         private System.Windows.Forms.CheckBox searchAllSubs;
+        private System.Windows.Forms.Button browse;
+        private System.Windows.Forms.FolderBrowserDialog getFolder;
     }
 }
 
