@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            this.fileList = new System.Windows.Forms.TextBox();
             this.dirInput = new System.Windows.Forms.TextBox();
             this.buttonOption1 = new System.Windows.Forms.Button();
             this.deleteFiles = new System.Windows.Forms.Button();
@@ -40,20 +39,10 @@
             this.searchAllSubs = new System.Windows.Forms.CheckBox();
             this.browse = new System.Windows.Forms.Button();
             this.getFolder = new System.Windows.Forms.FolderBrowserDialog();
+            this.fileList = new System.Windows.Forms.ListBox();
+            this.deleteFile = new System.Windows.Forms.Button();
+            this.clearSelected = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // fileList
-            // 
-            this.fileList.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.fileList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.fileList.Location = new System.Drawing.Point(12, 12);
-            this.fileList.Multiline = true;
-            this.fileList.Name = "fileList";
-            this.fileList.ReadOnly = true;
-            this.fileList.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.fileList.Size = new System.Drawing.Size(388, 284);
-            this.fileList.TabIndex = 0;
-            this.fileList.WordWrap = false;
             // 
             // dirInput
             // 
@@ -71,34 +60,37 @@
             // 
             // buttonOption1
             // 
+            this.buttonOption1.BackColor = System.Drawing.Color.White;
             this.buttonOption1.Location = new System.Drawing.Point(406, 218);
             this.buttonOption1.Name = "buttonOption1";
             this.buttonOption1.Size = new System.Drawing.Size(366, 23);
             this.buttonOption1.TabIndex = 2;
             this.buttonOption1.Text = "Generate List";
-            this.buttonOption1.UseVisualStyleBackColor = true;
+            this.buttonOption1.UseVisualStyleBackColor = false;
             this.buttonOption1.Click += new System.EventHandler(this.ButtonOption1_Click);
             // 
             // deleteFiles
             // 
+            this.deleteFiles.BackColor = System.Drawing.Color.White;
             this.deleteFiles.Enabled = false;
-            this.deleteFiles.Location = new System.Drawing.Point(12, 302);
+            this.deleteFiles.Location = new System.Drawing.Point(12, 331);
             this.deleteFiles.Name = "deleteFiles";
-            this.deleteFiles.Size = new System.Drawing.Size(184, 47);
+            this.deleteFiles.Size = new System.Drawing.Size(184, 24);
             this.deleteFiles.TabIndex = 3;
-            this.deleteFiles.Text = "Delete";
-            this.deleteFiles.UseVisualStyleBackColor = true;
+            this.deleteFiles.Text = "Delete All";
+            this.deleteFiles.UseVisualStyleBackColor = false;
             this.deleteFiles.Click += new System.EventHandler(this.DeleteFiles_Click);
             // 
             // clearFiles
             // 
+            this.clearFiles.BackColor = System.Drawing.Color.White;
             this.clearFiles.Enabled = false;
-            this.clearFiles.Location = new System.Drawing.Point(216, 302);
+            this.clearFiles.Location = new System.Drawing.Point(216, 331);
             this.clearFiles.Name = "clearFiles";
-            this.clearFiles.Size = new System.Drawing.Size(184, 47);
+            this.clearFiles.Size = new System.Drawing.Size(184, 24);
             this.clearFiles.TabIndex = 4;
-            this.clearFiles.Text = "Clear";
-            this.clearFiles.UseVisualStyleBackColor = true;
+            this.clearFiles.Text = "Clear All";
+            this.clearFiles.UseVisualStyleBackColor = false;
             this.clearFiles.Click += new System.EventHandler(this.ClearFiles_Click);
             // 
             // optionOneTitle
@@ -144,19 +136,57 @@
             // 
             // browse
             // 
+            this.browse.BackColor = System.Drawing.Color.White;
             this.browse.Location = new System.Drawing.Point(745, 116);
             this.browse.Name = "browse";
             this.browse.Size = new System.Drawing.Size(27, 20);
             this.browse.TabIndex = 11;
             this.browse.Text = "...";
-            this.browse.UseVisualStyleBackColor = true;
+            this.browse.UseVisualStyleBackColor = false;
             this.browse.Click += new System.EventHandler(this.Browse_Click);
+            // 
+            // fileList
+            // 
+            this.fileList.FormattingEnabled = true;
+            this.fileList.Location = new System.Drawing.Point(12, 12);
+            this.fileList.Name = "fileList";
+            this.fileList.Size = new System.Drawing.Size(388, 290);
+            this.fileList.TabIndex = 12;
+            this.fileList.SelectedIndexChanged += new System.EventHandler(this.FileList_SelectedIndexChanged);
+            // 
+            // deleteFile
+            // 
+            this.deleteFile.BackColor = System.Drawing.Color.White;
+            this.deleteFile.Enabled = false;
+            this.deleteFile.Location = new System.Drawing.Point(12, 308);
+            this.deleteFile.Name = "deleteFile";
+            this.deleteFile.Size = new System.Drawing.Size(184, 24);
+            this.deleteFile.TabIndex = 13;
+            this.deleteFile.Text = "Delete Selected";
+            this.deleteFile.UseVisualStyleBackColor = false;
+            this.deleteFile.Click += new System.EventHandler(this.DeleteFile_Click);
+            // 
+            // clearSelected
+            // 
+            this.clearSelected.BackColor = System.Drawing.Color.White;
+            this.clearSelected.Enabled = false;
+            this.clearSelected.Location = new System.Drawing.Point(216, 308);
+            this.clearSelected.Name = "clearSelected";
+            this.clearSelected.Size = new System.Drawing.Size(184, 24);
+            this.clearSelected.TabIndex = 14;
+            this.clearSelected.Text = "Clear Selected";
+            this.clearSelected.UseVisualStyleBackColor = false;
+            this.clearSelected.Click += new System.EventHandler(this.ClearSelected_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(784, 361);
+            this.Controls.Add(this.clearSelected);
+            this.Controls.Add(this.deleteFile);
+            this.Controls.Add(this.fileList);
             this.Controls.Add(this.browse);
             this.Controls.Add(this.searchAllSubs);
             this.Controls.Add(this.optionTwoTitle);
@@ -166,7 +196,6 @@
             this.Controls.Add(this.deleteFiles);
             this.Controls.Add(this.buttonOption1);
             this.Controls.Add(this.dirInput);
-            this.Controls.Add(this.fileList);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -180,8 +209,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox fileList;
         private System.Windows.Forms.TextBox dirInput;
         private System.Windows.Forms.Button buttonOption1;
         private System.Windows.Forms.Button deleteFiles;
@@ -192,6 +219,9 @@
         private System.Windows.Forms.CheckBox searchAllSubs;
         private System.Windows.Forms.Button browse;
         private System.Windows.Forms.FolderBrowserDialog getFolder;
+        private System.Windows.Forms.ListBox fileList;
+        private System.Windows.Forms.Button deleteFile;
+        private System.Windows.Forms.Button clearSelected;
     }
 }
 
