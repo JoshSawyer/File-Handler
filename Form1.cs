@@ -13,9 +13,10 @@ namespace File_Handler
 {
     public partial class Main : Form
     {
-        bool debugMode = true;
+        bool debugMode = false;
 
         string memoryDir;
+        string selectedFile;
         bool? memoryOption;
         string memoryFile;
 
@@ -96,7 +97,7 @@ namespace File_Handler
 
             foreach (string fileDir in files)
             {
-                fileList.Text += fileDir + Environment.NewLine;
+                fileList.Items.Add(fileDir);
             }
 
             deleteFiles.Enabled = true;
@@ -141,6 +142,7 @@ namespace File_Handler
 
             MessageBox.Show("Files successfully deleted!", "Success");
 
+            fileList.Items.Clear();
             ClearFiles_Click(sender, e);
         }
 
@@ -149,6 +151,7 @@ namespace File_Handler
             fileList.Text = "";
             deleteFiles.Enabled = false;
             clearFiles.Enabled = false;
+            deleteFile.Enabled = false;
         }
 
         private void DirInput_TextChanged(object sender, EventArgs e)
@@ -184,6 +187,36 @@ namespace File_Handler
             {
                 dirInput.Text = getFolder.SelectedPath;
             }
+        }
+
+        private void FileList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                selectedFile = fileList.SelectedItem.ToString();
+                deleteFile.Enabled = true;
+                clearSelected.Enabled = true;
+            }
+            catch { }
+        }
+
+        private void DeleteFile_Click(object sender, EventArgs e)
+        {
+            if (selectedFile != null)
+            {
+                fileList.Items.Remove(selectedFile);
+                File.Delete(selectedFile);
+            }
+            deleteFile.Enabled = false;
+        }
+
+        private void ClearSelected_Click(object sender, EventArgs e)
+        {
+            if (selectedFile != null)
+            {
+                fileList.Items.Remove(selectedFile);
+            }
+            clearSelected.Enabled = false;
         }
     }
 }
