@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Diagnostics;
 
 namespace File_Handler
 {
@@ -217,6 +212,15 @@ namespace File_Handler
                 fileList.Items.Remove(selectedFile);
             }
             clearSelected.Enabled = false;
+        }
+
+        private void FileList_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                Process.Start(fileList.SelectedItem.ToString());
+            }
+            catch { }
         }
     }
 }

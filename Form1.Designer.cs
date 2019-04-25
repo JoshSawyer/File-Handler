@@ -154,6 +154,7 @@
             this.fileList.Size = new System.Drawing.Size(388, 290);
             this.fileList.TabIndex = 12;
             this.fileList.SelectedIndexChanged += new System.EventHandler(this.FileList_SelectedIndexChanged);
+            this.fileList.DoubleClick += new System.EventHandler(this.FileList_DoubleClick);
             // 
             // deleteFile
             // 
