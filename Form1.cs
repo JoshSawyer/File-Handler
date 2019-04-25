@@ -97,6 +97,7 @@ namespace File_Handler
 
             deleteFiles.Enabled = true;
             clearFiles.Enabled = true;
+            extractAll.Enabled = true;
         }
 
         private void DeleteFiles_Click(object sender, EventArgs e)
@@ -143,10 +144,13 @@ namespace File_Handler
 
         private void ClearFiles_Click(object sender, EventArgs e)
         {
-            fileList.Text = "";
+            fileList.Items.Clear();
             deleteFiles.Enabled = false;
             clearFiles.Enabled = false;
+            clearSelected.Enabled = false;
             deleteFile.Enabled = false;
+            extractSelected.Enabled = false;
+            extractAll.Enabled = false;
         }
 
         private void DirInput_TextChanged(object sender, EventArgs e)
@@ -191,18 +195,28 @@ namespace File_Handler
                 selectedFile = fileList.SelectedItem.ToString();
                 deleteFile.Enabled = true;
                 clearSelected.Enabled = true;
+                extractSelected.Enabled = true;
             }
             catch { }
         }
 
         private void DeleteFile_Click(object sender, EventArgs e)
         {
-            if (selectedFile != null)
+            try
             {
-                fileList.Items.Remove(selectedFile);
-                File.Delete(selectedFile);
+                if (selectedFile != null)
+                {
+                    File.Delete(selectedFile);
+                    fileList.Items.Remove(selectedFile);
+                }
+                deleteFile.Enabled = false;
+                extractSelected.Enabled = false;
+                clearSelected.Enabled = false;
             }
-            deleteFile.Enabled = false;
+            catch
+            {
+                MessageBox.Show("Access denied!", "Error");
+            }
         }
 
         private void ClearSelected_Click(object sender, EventArgs e)
@@ -212,6 +226,8 @@ namespace File_Handler
                 fileList.Items.Remove(selectedFile);
             }
             clearSelected.Enabled = false;
+            deleteFile.Enabled = false;
+            extractSelected.Enabled = false;
         }
 
         private void FileList_DoubleClick(object sender, EventArgs e)
@@ -221,6 +237,66 @@ namespace File_Handler
                 Process.Start(fileList.SelectedItem.ToString());
             }
             catch { }
+        }
+
+        private void ExtractSelected_Click(object sender, EventArgs e)
+        {
+            DialogResult result = getFolder.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                string selItem = fileList.SelectedItem.ToString();
+
+                int i;
+                for (i = selItem.Length - 1; i >= 0; i--)
+                {
+                    if (selItem[i] == '\\')
+                    {
+                        break;
+                    }
+                }
+                string newLoc = getFolder.SelectedPath + selItem.Substring(i, selItem.Length - i);
+
+                try
+                {
+                    File.Copy(selItem, newLoc);
+                    MessageBox.Show("File succesfully copied!", "Success");
+                }
+                catch
+                {
+                    MessageBox.Show("File, " + newLoc + ", already exists!", "Error");
+                }
+            }
+        }
+
+        private void ExtractAll_Click(object sender, EventArgs e)
+        {
+            DialogResult result = getFolder.ShowDialog();
+
+            foreach (string selItem in fileList.Items)
+            {
+                if (result == DialogResult.OK)
+                {
+                    int i;
+                    for (i = selItem.Length - 1; i >= 0; i--)
+                    {
+                        if (selItem[i] == '\\')
+                        {
+                            break;
+                        }
+                    }
+                    string newLoc = getFolder.SelectedPath + selItem.Substring(i, selItem.Length - i);
+
+                    try
+                    {
+                        File.Copy(selItem, newLoc);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("File, " + newLoc + ", already exists!", "Error");
+                    }
+                }
+            }
         }
     }
 }

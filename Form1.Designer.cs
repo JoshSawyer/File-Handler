@@ -42,6 +42,8 @@
             this.fileList = new System.Windows.Forms.ListBox();
             this.deleteFile = new System.Windows.Forms.Button();
             this.clearSelected = new System.Windows.Forms.Button();
+            this.extractSelected = new System.Windows.Forms.Button();
+            this.extractAll = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // dirInput
@@ -75,7 +77,7 @@
             this.deleteFiles.Enabled = false;
             this.deleteFiles.Location = new System.Drawing.Point(12, 331);
             this.deleteFiles.Name = "deleteFiles";
-            this.deleteFiles.Size = new System.Drawing.Size(184, 24);
+            this.deleteFiles.Size = new System.Drawing.Size(113, 24);
             this.deleteFiles.TabIndex = 3;
             this.deleteFiles.Text = "Delete All";
             this.deleteFiles.UseVisualStyleBackColor = false;
@@ -85,9 +87,9 @@
             // 
             this.clearFiles.BackColor = System.Drawing.Color.White;
             this.clearFiles.Enabled = false;
-            this.clearFiles.Location = new System.Drawing.Point(216, 331);
+            this.clearFiles.Location = new System.Drawing.Point(289, 331);
             this.clearFiles.Name = "clearFiles";
-            this.clearFiles.Size = new System.Drawing.Size(184, 24);
+            this.clearFiles.Size = new System.Drawing.Size(111, 24);
             this.clearFiles.TabIndex = 4;
             this.clearFiles.Text = "Clear All";
             this.clearFiles.UseVisualStyleBackColor = false;
@@ -146,6 +148,10 @@
             this.browse.UseVisualStyleBackColor = false;
             this.browse.Click += new System.EventHandler(this.Browse_Click);
             // 
+            // getFolder
+            // 
+            this.getFolder.Description = "Select A Folder";
+            // 
             // fileList
             // 
             this.fileList.FormattingEnabled = true;
@@ -162,7 +168,7 @@
             this.deleteFile.Enabled = false;
             this.deleteFile.Location = new System.Drawing.Point(12, 308);
             this.deleteFile.Name = "deleteFile";
-            this.deleteFile.Size = new System.Drawing.Size(184, 24);
+            this.deleteFile.Size = new System.Drawing.Size(113, 24);
             this.deleteFile.TabIndex = 13;
             this.deleteFile.Text = "Delete Selected";
             this.deleteFile.UseVisualStyleBackColor = false;
@@ -172,13 +178,37 @@
             // 
             this.clearSelected.BackColor = System.Drawing.Color.White;
             this.clearSelected.Enabled = false;
-            this.clearSelected.Location = new System.Drawing.Point(216, 308);
+            this.clearSelected.Location = new System.Drawing.Point(289, 308);
             this.clearSelected.Name = "clearSelected";
-            this.clearSelected.Size = new System.Drawing.Size(184, 24);
+            this.clearSelected.Size = new System.Drawing.Size(111, 24);
             this.clearSelected.TabIndex = 14;
             this.clearSelected.Text = "Clear Selected";
             this.clearSelected.UseVisualStyleBackColor = false;
             this.clearSelected.Click += new System.EventHandler(this.ClearSelected_Click);
+            // 
+            // extractSelected
+            // 
+            this.extractSelected.BackColor = System.Drawing.Color.White;
+            this.extractSelected.Enabled = false;
+            this.extractSelected.Location = new System.Drawing.Point(131, 308);
+            this.extractSelected.Name = "extractSelected";
+            this.extractSelected.Size = new System.Drawing.Size(152, 24);
+            this.extractSelected.TabIndex = 16;
+            this.extractSelected.Text = "Extract Selected";
+            this.extractSelected.UseVisualStyleBackColor = false;
+            this.extractSelected.Click += new System.EventHandler(this.ExtractSelected_Click);
+            // 
+            // extractAll
+            // 
+            this.extractAll.BackColor = System.Drawing.Color.White;
+            this.extractAll.Enabled = false;
+            this.extractAll.Location = new System.Drawing.Point(131, 331);
+            this.extractAll.Name = "extractAll";
+            this.extractAll.Size = new System.Drawing.Size(152, 24);
+            this.extractAll.TabIndex = 15;
+            this.extractAll.Text = "Extract All";
+            this.extractAll.UseVisualStyleBackColor = false;
+            this.extractAll.Click += new System.EventHandler(this.ExtractAll_Click);
             // 
             // Main
             // 
@@ -186,6 +216,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(784, 361);
+            this.Controls.Add(this.extractSelected);
+            this.Controls.Add(this.extractAll);
             this.Controls.Add(this.clearSelected);
             this.Controls.Add(this.deleteFile);
             this.Controls.Add(this.fileList);
@@ -224,6 +256,8 @@
         private System.Windows.Forms.ListBox fileList;
         private System.Windows.Forms.Button deleteFile;
         private System.Windows.Forms.Button clearSelected;
+        private System.Windows.Forms.Button extractSelected;
+        private System.Windows.Forms.Button extractAll;
     }
 }
 
