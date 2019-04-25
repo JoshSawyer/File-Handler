@@ -127,12 +127,13 @@
             // searchAllSubs
             // 
             this.searchAllSubs.AutoSize = true;
+            this.searchAllSubs.BackColor = System.Drawing.Color.White;
             this.searchAllSubs.Location = new System.Drawing.Point(406, 195);
             this.searchAllSubs.Name = "searchAllSubs";
             this.searchAllSubs.Size = new System.Drawing.Size(144, 17);
             this.searchAllSubs.TabIndex = 10;
             this.searchAllSubs.Text = "Search All Subdirectories";
-            this.searchAllSubs.UseVisualStyleBackColor = true;
+            this.searchAllSubs.UseVisualStyleBackColor = false;
             // 
             // browse
             // 
@@ -153,6 +154,7 @@
             this.fileList.Size = new System.Drawing.Size(388, 290);
             this.fileList.TabIndex = 12;
             this.fileList.SelectedIndexChanged += new System.EventHandler(this.FileList_SelectedIndexChanged);
+            this.fileList.DoubleClick += new System.EventHandler(this.FileList_DoubleClick);
             // 
             // deleteFile
             // 
@@ -182,7 +184,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Silver;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(784, 361);
             this.Controls.Add(this.clearSelected);
             this.Controls.Add(this.deleteFile);
